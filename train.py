@@ -121,7 +121,7 @@ if __name__ == "__main__":
     """Second Solve"""
     # np.savetxt('./data/recg_mat_second.data', recg_mat, fmt="%18e", delimiter=" ")
     """Third Solve"""
-    np.savetxt('./data/recg_mat_Third.data', recg_mat, fmt="%18e", delimiter=" ")
+    # np.savetxt('./data/recg_mat_Third.data', recg_mat, fmt="%18e", delimiter=" ")
     """Forth Solve"""
     np.savetxt('./data/recg_mat_Forth.data', recg_mat, fmt="%18e", delimiter=" ")
 

@@ -19,7 +19,7 @@ prob_rand_y = np.loadtxt('./data/norm_rand_y.data', dtype=np.float64, delimiter=
 prob_rand_x = np.loadtxt('./data/norm_rand_x.data', dtype=np.float64, delimiter=" ").tolist()
 
 """Train Once"""
-cmd = '-t 2 -n ' + str(1) + ' -g ' + str(4)
+cmd = '-t 2 -n ' + str(2 ** (- 0.4)) + ' -g ' + str(2 ** 1.4)
 model = svm_train(prob_crs_vld_y, prob_crs_vld_x, cmd)
 svm_save_model("./data/crs_vld_model", model)
 
