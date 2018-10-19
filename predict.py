@@ -12,17 +12,23 @@ from libsvm.python.svmutil import *
 import numpy as np
 import matplotlib.pyplot as plt
 import const
+import json
+import os
 
-prob_crs_vld_y = np.loadtxt('./data/norm_crs_vld_y.data', dtype=np.float64, delimiter=" ").tolist()
-prob_crs_vld_x = np.loadtxt('./data/norm_crs_vld_x.data', dtype=np.float64, delimiter=" ").tolist()
-prob_rand_y = np.loadtxt('./data/norm_rand_y.data', dtype=np.float64, delimiter=" ").tolist()
-prob_rand_x = np.loadtxt('./data/norm_rand_x.data', dtype=np.float64, delimiter=" ").tolist()
+# prob_crs_vld_y = np.loadtxt('./data/norm_crs_vld_y.data', dtype=np.float64, delimiter=" ").tolist()
+# prob_crs_vld_x = np.loadtxt('./data/norm_crs_vld_x.data', dtype=np.float64, delimiter=" ").tolist()
+# prob_rand_y = np.loadtxt('./data/norm_rand_y.data', dtype=np.float64, delimiter=" ").tolist()
+# prob_rand_x = np.loadtxt('./data/norm_rand_x.data', dtype=np.float64, delimiter=" ").tolist()
+# rand_data = np.loadtxt('./data/rand_training.data', dtype=np.float, delimiter=" ")
 
-
+norm_testing_data = np.loadtxt("./data/norm_testing_data.data", dtype=np.float64, delimiter=" ")
+self_norm_rand_data = np.loadtxt('./data/norm_testing_data.data', dtype=np.float64, delimiter=" ")
+prob_x = self_norm_rand_data[:, 0:const.dim_num].tolist()
+prob_y = self_norm_rand_data[:, const.dim_num]
 """Train once"""
-#cmd = '-t 2 -c ' + str(2 ** (- 0.4)) + ' -g ' + str(2 ** 1.4)
-#model = svm_train(prob_crs_vld_y, prob_crs_vld_x, cmd)
-#svm_save_model("./data/crs_vld_model", model)
+# cmd = '-t 2 -c ' + str(2 ** (- 0.4)) + ' -g ' + str(2 ** 1.4)
+# model = svm_train(prob_crs_vld_y, prob_crs_vld_x, cmd)
+# svm_save_model("./data/crs_vld_model", model)
 
 model = svm_load_model("./data/crs_vld_model")
 predict_label, accuracy, decision_value = svm_predict(prob_rand_y[0:10000], prob_rand_x[0:10000], model)

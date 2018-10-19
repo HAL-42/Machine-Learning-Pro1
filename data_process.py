@@ -12,9 +12,9 @@ import numpy as np
 import const
 import json
 
-raw_data = np.loadtxt('./data/training.data', dtype=np.float, delimiter=" ")
+# raw_data = np.loadtxt('./data/training.data', dtype=np.float, delimiter=" ")
 """Calculate the proportion of each class in the data set"""
-y = raw_data[:,6].tolist()
+# y = raw_data[:,6].tolist()
 # print(y)
 # print(y.count(-1)/len(y))
 """Shuffle the raw data
@@ -65,6 +65,24 @@ ATTENTION: DO IT ONLY ONCE
 # np.savetxt('./data/norm_rand_x.data', rand_data[:, 0:const.dim_num], fmt='%.18e', delimiter=" ")
 # np.savetxt('./data/norm_rand_y.data', rand_data[:, const.dim_num], fmt='%.18e', delimiter=" ")
 
+"""Normalize testing data, Do it Once!"""
+# rand_data = np.loadtxt('./data/rand_training.data', dtype=np.float, delimiter=" ")
+# rand_mean = [np.mean((rand_data[:, i])) for i in range(const.dim_num)]
+# rand_std = [np.std(rand_data[:, i]) for i in range(const.dim_num)]
+# with open("./data/rand_mean", 'w') as f:
+#     json.dump(rand_mean, f)
+# with open("./data/rand_std", 'w') as f:
+#     json.dump(rand_std, f)
+#
+# testing_data = np.loadtxt('./data/testing.data', dtype=np.float)
+# np_rand_mean = np.array(rand_mean)
+# np_rand_std = np.array(rand_std)
+# for row in rand_data:
+#     row[0:const.dim_num] = (row[0:const.dim_num] - np_rand_mean) / np_rand_std
+# for row in testing_data:
+#     row[0:const.dim_num] = (row[0:const.dim_num] - np_rand_mean) / np_rand_std
+# np.savetxt("./data/self_norm_rand_data.data", rand_data, fmt='%.18e', delimiter=" ")
+# np.savetxt("./data/norm_testing_data.data", testing_data, fmt='%.18e', delimiter=" ")
 
 
 
